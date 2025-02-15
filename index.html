@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eshwar Bychanahalli - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #ccd6f6;
+            line-height: 1.6;
+        }
+        a {
+            color: #64ffda;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3 {
+            color: #e6f1ff;
+            margin-bottom: 0.5em;
+        }
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        header {
+            background: rgba(10, 25, 47, 0.9); /* Dark Blue with transparency */
+            backdrop-filter: blur(10px); /* Smooth glass-like blur */
+            color: #fff;
+            padding: 60px 0;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .header-contact a {
+            color: #3a8e7a;
+            text-decoration: none;
+        }
+
+
+        .header-title {
+            font-size: 2.8em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
+        }
+
+        .header-subtitle {
+            font-size: 1.4em;
+            margin-top: 10px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .resume-download a {
+            display: inline-block;
+            background: #49c8aa;
+            color: #0a192f;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 0px 5px 15px rgba(100, 255, 218, 0.3);
+        }
+
+        .resume-download a:hover {
+            background: #51bda6;
+            transform: scale(1.05);
+        }
+
+        nav {
+            background-color: #112240;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li {
+            list-style: none;
+        }
+        nav ul li a {
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .experience-card {
+            background: #1b2537;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .experience-card:hover {
+            transform: scale(1.05);
+        }
+        .experience-card h3 {
+            color: #64ffda;
+            margin-bottom: 10px;
+        }
+        .experience-card ul {
+            padding-left: 20px;
+        }
+        .experience-card ul li {
+            list-style: none;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .experience-card ul li.expanded .content {
+            display: block;
+        }
+        .experience-card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #64ffda;
+        }
+        .experience-card ul li button {
+            background: none;
+            border: none;
+            color: #64ffda;
+            cursor: pointer;
+            font-size: 1em;
+            padding: 0;
+            margin: 0;
+        }
+        .experience-card ul li .content {
+            display: none;
+        }
+
+        .experience-card ul li:hover .content {
+            display: block;
+        }
+        .tech-tags {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .tech-tag {
+            background: #253148;
+            color: #ccd6f6;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out;
+        }
+        .tech-tag:hover {
+            transform: scale(1.05);
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .skill {
+            display: flex;
+            align-items: center;
+            background: #1b2537;
+            padding: 10px 20px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out;
+        }
+        .skill:hover {
+            transform: scale(1.05);
+        }
+        .skill i {
+            font-size: 2em;
+            margin-right: 10px;
+            color: #64ffda;
+        }
+        .education-card {
+            background: #1b2537;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .education-card:hover {
+            transform: scale(1.05);
+        }
+        .education-card h3 {
+            color: #64ffda;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .education-card p {
+            margin-bottom: 10px;
+        }
+        .education-card .details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .education-card .details span {
+            background: #253148;
+            color: #ccd6f6;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .experience-card ul li .content {
+            display: none;
+        }
+
+        .experience-card ul li.expanded .content {
+            display: block;
+        }
+        .course-tags {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .course-tag {
+            background: #253148;
+            color: #ccd6f6;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out;
+        }
+        .course-tag:hover {
+            transform: scale(1.05);
+        }
+        .about-content {
+            background: #1b2537;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            color: #ccd6f6;
+        }
+
+        .about-content strong {
+            color: #51bda6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #0a192f;
+            color: #8892b0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container header-container">
+        <div class="header-text">
+            <h1 class="header-title">Eshwar Bychanahalli</h1>
+            <p class="header-subtitle">Fullstack Software Engineer | AI Enthusiast</p>
+            <p class="header-contact">
+            <p id="contact">Loading email...</p>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var email = "moc.liamg@illahanahcaybe";
+                    var reversed = email.split("").reverse().join("");
+
+                    document.getElementById("contact").innerHTML =
+                        'Contact: <a href="mailto:' + reversed + '">' + reversed + '</a>';
+                });
+            </script>
+            </p>
+        </div>
+        <div class="resume-download">
+            <a href="https://drive.google.com/file/d/1KUXltGuR0t3dOhE1Lip__IhcHT7rNbvY/view?usp=sharing" download>
+                <i class="fas fa-file-download"></i> Download My Resume
+            </a>
+        </div>
+    </div>
+</header>
+
+
+<nav>
+    <ul class="container">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+    </ul>
+</nav>
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>Hi, I’m <strong>Eshwar</strong>—an engineer who thrives on building scalable, high-performance software while keeping things witty on the side. With experience spanning <strong>full-stack development, cloud computing, and machine learning</strong>, I enjoy crafting seamless digital solutions, whether it's optimizing massive data pipelines or fine-tuning a <strong>Retrieval-Augmented Generation (RAG) chatbot</strong>.</p>
+
+            <p>When I’m not knee-deep in code, you’ll find me <strong>hitting the gym, hiking up a new trail</strong>, or dissecting the latest <strong>startup trends on a podcast</strong>. I also like to keep social media interesting by adding clever quips to viral reels—because, let’s be honest, even algorithms could use a good laugh.</p>
+
+            <p>From <strong>encryption solutions</strong> to <strong>predictive analytics</strong>, my work revolves around building impactful tech that drives efficiency, security, and engagement. If it involves <strong>coding, automation, or AI</strong>, I’m all in—bonus points if it comes with a challenge! 🚀</p>
+        </div>
+    </div>
+</section>
+<section id="experience" class="experience">
+    <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-card">
+            <h3>Verisk Analytics, Boston (Sept 2022 – Present)</h3>
+            <ul>
+                <li>
+                    Developed a scalable, full-stack platform integrating multiple products, companies, and user bases
+                    with robust license management. Built and optimized an application that processes millions of rules with
+                    an infinite scrolling UI, rule validation, and collision checks using Angular for frontend, C# for
+                    backend, and Python for data processing. Leveraged AWS services including S3, Athena, Glue,
+                    DynamoDB, Lambda, CloudFormation, State Machine, RDS, and IAM for a high-performance solution.
+                </li>
+                <li>
+                    Engineered highly scalable, critical, low-latency serverless applications on AWS, delivering reliable
+                    services to a global user base. Built and managed CI/CD pipelines on AWS to automate seamless
+                    integration with Verisk's suite of products and services, enhancing operational efficiency.
+                </li>
+                <li>
+                    Authored over 1200 meticulously crafted test cases, elevating software quality and reliability through
+                    comprehensive unit, integration, and end-to-end testing across front-end and back-end functionalities.
+                    Leveraged Cypress, Postman, and Pytest frameworks to ensure robust application performance,
+                    delivering resilient and high-quality software solutions.
+                </li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">CI/CD</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <h3>Global Lending Services, Greenville, USA (Jun 2021 – Sept 2022)</h3>
+            <ul>
+                <li>Optimized the process of removing Personally Identifiable Information (PII) from XML files using a
+                    Python script, reducing daily processing time from 6-8 hours to under 15 minutes. This significant
+                    improvement in efficiency streamlined data handling workflows and enhanced the security and
+                    compliance of sensitive information.</li>
+                <li>Developed a secure encryption solution in C# for XML files by implementing AES for data encryption
+                    and RSA-256 for encrypting AES keys. Utilized Azure Key Vault to securely store encryption keys and
+                    initialization vectors, ensuring efficient and protected decryption processes.</li>
+                <li>Designed and implemented a high-performance, end-to-end data pipeline for seamless migration from MS SQL Server to Snowflake,
+                    increasing processing efficiency by 75% and enhancing data accessibility for business teams.</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">XML</span>
+                <span class="tech-tag">CI/CD</span>
+                <span class="tech-tag">Encryption</span>
+                <span class="tech-tag">Snowflake</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <h3>Clemson University, Clemson, USA (Dec 2019 – May 2021)</h3>
+            <ul>
+                <li>Developed an ML model to classify plant species with 86% accuracy.</li>
+                <li>Implemented an optimal path planning solution using MILP and MATLAB.</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">ETL</span>
+                <span class="tech-tag">Data Pipelines</span>
+                <span class="tech-tag">SQL</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <h3>iEnabler, Bengaluru, India (Jan 2017 – May 2019)</h3>
+            <ul>
+                <li>Developed an ERP system to manage employee data and automate HR workflows.</li>
+                <li>Designed and implemented RAKE and TF-IDF for keyword extraction in documents.</li>
+                <li>Wrote 100+ ETL scripts to automate data movement and processing.</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">ETL</span>
+                <span class="tech-tag">ERP</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Parsing</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="projects" class="experience">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="experience-card">
+            <h3>RAG Based chatbot for Websites</h3>
+            <ul>
+                <li>Implemented Retrieval-Augmented Generation (RAG) model using the LangChain framework to
+                    enhance response accuracy by integrating external information retrieval.</li>
+                <li>Developed an interactive chatbot that enables users to engage with website content through natural language conversations</li>
+                <li>Designed a user-friendly interface with Streamlit, facilitating seamless interactions between users and the chatbot. Used ChromaDB as the vectorDB for RAG</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">ChromaDB</span>
+                <span class="tech-tag">RAG</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">ChatBot</span>
+                <span class="tech-tag">Streamlit</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <h3>PG Neet College Predictor</h3>
+            <ul>
+                <li>Developed an application to predict PG NEET college allotments based on previous years' seat allotment data.</li>
+                <li>Scraped data from official government websites to build an accurate and data-driven prediction model.</li>
+                <li>Implemented a backend using Node.js and SQLite3 for efficient data storage and retrieval.</li>
+                <li>Utilized Python for data processing, analysis, and predictive modeling.</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">SQLite3</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">React</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <h3>Banner Printing Website</h3>
+            <ul>
+                <li>Developed a web application for ordering custom banners directly from a mobile device. \
+                    Implemented a seamless user experience for uploading images and placing orders.</li>
+                <li>Built the frontend using Next.js and ShadCN for a modern and responsive UI and Backend with ExpressJS and MongoDB</li>
+                <li>Designed and integrated a fully in-house authentication system using NextAuth.</li>
+                <li>Added email notifications using Nodemailer to confirm orders and provide updates.</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">ShadCN</span>
+                <span class="tech-tag">NextAuth</span>
+                <span class="tech-tag">Nodemailer Integration</span>
+                <span class="tech-tag">MongoDB</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <h3>Education Support Platform</h3>
+            <ul>
+                <li>Developing a comprehensive online learning platform similar to Canvas using Angular, Python and
+                    C#, designed to support digital education.</li>
+                <li>The platform offers essential academic tools, including access
+                    to recorded lectures, downloadable notes, assignments, quizzes, and a range of interactive learning
+                    resources. This system aims to enhance student engagement, streamline content delivery for educators,
+                    and support a collaborative online learning environment.</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">PSQL</span>
+                <span class="tech-tag">AWS</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <h3>ChaperOne</h3>
+            <ul>
+                <li>Utilized Raspberry Pi, Python, Open CV , and an Ultrasonic Sensor to build a device for the blind, that
+                    will depict surrounding entities in front of the user that is within the line of sight.</li>
+                <li>Used OpenCV and
+                    Python to perform Object Identification warning the user of potential threats. Implemented the
+                    YOLO algorithm to increase the efficiency of Raspberry Pi computation methods, leading to the device
+                    being completely remote.</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">RaspberryPi</span>
+                <span class="tech-tag">YOLO</span>
+                <span class="tech-tag">Ultrasonic Sensors</span>
+                <span class="tech-tag">Hardware Integration</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section id="skills" class="skills">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills">
+            <div class="skill"><i class="fab fa-python"></i>Python</div>
+            <div class="skill"><i class="fab fa-angular"></i>Angular</div>
+            <div class="skill"><i class="fab fa-aws"></i>AWS</div>
+            <div class="skill"><i class="fab fa-docker"></i>Docker</div>
+            <div class="skill"><i class="fas fa-database"></i>SQL</div>
+            <div class="skill"><i class="fas fa-code-branch"></i>CI/CD</div>
+            <div class="skill"><i class="fas fa-brain"></i>LLM Prompting</div>
+            <div class="skill"><i class="fas fa-search"></i>RAG</div>
+            <div class="skill"><i class="fas fa-database"></i>NoSQL</div>
+            <div class="skill"><i class="fas fa-vector-square"></i>VectorDB</div>
+            <div class="skill"><i class="fas fa-tools"></i>Fine Tuning</div>
+        </div>
+    </div>
+</section>
+<section id="education" class="education">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="education-card">
+            <h3>
+                Clemson University
+                <span>2019 - 2021</span>
+            </h3>
+            <div class="details">
+                <p>Masters in Computer Science</p>
+            </div>
+            <div class="course-tags">
+                <span class="course-tag">Machine Learning</span>
+                <span class="course-tag">Data Structures</span>
+                <span class="course-tag">Algorithms</span>
+                <span class="course-tag">Database Systems</span>
+                <span class="course-tag">Cloud Computing</span>
+                <span class="course-tag">Deep Learning</span>
+                <span class="course-tag">Security in AI Systems</span>
+                <span class="course-tag">Statistical Modeling</span>
+                <span class="course-tag">Network Science</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="hobbies" class="hobbies">
+    <div class="container">
+        <h2 class="section-title">Hobbies</h2>
+        <div class="experience-card">
+            <ul>
+                <li>️‍Gym, Hiking</li>
+                <li>Listening to podcasts related to startups, business, and stand-up comedy.</li>
+                <li>Crafting witty quips on reels over social media to keep the online crowd entertained.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p id="email">Loading email...</p>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var email = "moc.liamg@illahanahcaybe";
+                var reversed = email.split("").reverse().join("");
+
+                document.getElementById("email").innerHTML =
+                    'Contact: <a href="mailto:' + reversed + '">' + reversed + '</a>';
+            });
+        </script>
+    </div>
+</footer>
+<script>
+    document.querySelectorAll('.experience-card ul li').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.classList.add('expanded');
+        });
+    });
+</script>
+</body>
+</html>
